@@ -96,7 +96,8 @@ describe 'create,destroy,update,edit and show' do
          get :index,{:sort => "release_date"}
      end
      it 'should process index method with sort on release_date and ratings = G' do
-         get :index,{:sort => "release_date"},{:sort => "release_date"}
+         get :index,{:sort => "release_date",:ratings => ['G','PG']},{:sort => "release_date",:ratings=>""}
+          get :index,{:sort => "release_date",:ratings => {'G'=>"ratings_G",'PG'=>"ratings_PG"}},{:sort => "release_date",:ratings=>{'G'=>"ratings_G",'PG'=>"ratings_PG"}}
      end
      it 'should process index method with sort different on param and session' do
          get :index,{:sort => "release_date"},{:sort => "title"}
